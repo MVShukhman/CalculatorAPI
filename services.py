@@ -1,7 +1,7 @@
 from models import ExpressionRequest, EvalResponse
 
 
-def check_phrase_format(phrase: str):
+def check_phrase_format(phrase: str) -> bool:
     for sym in phrase:
         if 39 < ord(sym) < 44 or 44 < ord(sym) < 58:
             continue
