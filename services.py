@@ -12,12 +12,12 @@ def check_phrase_format(phrase: str):
 
 async def calculate_expression(expression: ExpressionRequest) -> EvalResponse:
     if not check_phrase_format(expression.phrase):
-        return EvalResponse(full_response='Wrong syntax!')
+        return EvalResponse(full_response="Wrong syntax!")
     try:
         result = eval(expression.phrase)
     except ZeroDivisionError:
-        return EvalResponse(full_response='Zero division error!')
+        return EvalResponse(full_response="Zero division error!")
     except SyntaxError:
-        return EvalResponse(full_response='Wrong syntax!')
+        return EvalResponse(full_response="Wrong syntax!")
 
-    return EvalResponse(value=result, full_response=f'{expression.phrase} = {result}')
+    return EvalResponse(value=result, full_response=f"{expression.phrase} = {result}")
